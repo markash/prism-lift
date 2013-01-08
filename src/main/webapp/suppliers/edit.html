@@ -5,24 +5,35 @@
         <lift:notice_class>notification success</lift:notice_class>
     </lift:Notices>
 
-    <form class="lift:supplierView.edit" form="post">
-        <fieldset>
-            <legend>Legend</legend>
-            <dl>
-                <dt><label>Name:</label></dt>
-                <dd><supplier:name/></dd>
-                <dt><label>Email:</label></dt>
-                <dd><supplier:email/><lift:Msg/></dd>
-                <dt><label>Telephone:</label></dt>
-                <dd><supplier:telephone/></dd>
-                <dt><label>Address:</label></dt>
-                <dd><supplier:address/></dd>
-                <dt><label>Opening Hours:</label></dt>
-                <dd><supplier:opening-hours/></dd>
-            </dl>
-        </fieldset>
-        <supplier:submit>
-            <button>New</button>
-        </supplier:submit>
-    </form>
+    <div class="row-fluid">
+        <article class="span12 data-block nested">
+            <div class="data-container">
+                <header>
+                    <h3>{S.?("form.supplier.edit")}</h3>
+                </header>
+                <section>
+                    <form class="lift:supplierView.edit" form="post">
+                        <fieldset>
+                            <legend>Legend</legend>
+                            <dl>
+                                <dt><label>Name:</label></dt>
+                                <dd><supplier:name/></dd>
+                                <dt><label>Email:</label></dt>
+                                <dd><supplier:email/><lift:Msg/></dd>
+                                <dt><label>Telephone:</label></dt>
+                                <dd><supplier:telephone/></dd>
+                                <dt><label>Address:</label></dt>
+                                <dd><supplier:address/></dd>
+                                <dt><label>Opening Hours:</label></dt>
+                                <dd><supplier:opening-hours/></dd>
+                            </dl>
+                        </fieldset>
+                        <supplier:submit>
+                            <button>New</button>
+                        </supplier:submit>
+                    </form>
+                </section>
+            </div>
+        </article>
+    </div>
 </div>

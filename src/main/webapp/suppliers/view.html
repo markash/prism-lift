@@ -1,23 +1,30 @@
 <div class="lift:surround?with=default&at=content">
-    <form class="lift:supplierView.view" form="post">
-        <fieldset>
-            <legend>Legend</legend>
-            <dl>
-                <dt><label>Name:</label></dt>
-                <dd><supplier:name/></dd>
-                <dt><label>Email:</label></dt>
-                <dd><supplier:email/><lift:Msg/></dd>
-                <dt><label>Telephone:</label></dt>
-                <dd><supplier:telephone/></dd>
-                <dt><label>Address:</label></dt>
-                <dd><supplier:address/></dd>
-                <dt><label>Opening Hours:</label></dt>
-                <dd><supplier:openingHours/></dd>
-            </dl>
-        </fieldset>
-        <supplier:submit>
-            <button>New</button>
-        </supplier:submit>
-    </form>
-
+    <div class="row-fluid">
+        <article class="span12 data-block nested">
+            <div class="data-container">
+                <header>
+                    <h3>{S.?("form.supplier.view")}</h3>
+                </header>
+                <section>
+                    <form class="lift:supplierView.view" form="post">
+                        <fieldset>
+                            <legend>Legend</legend>
+                            <dl>
+                                <dt><label>Name:</label></dt>
+                                <dd><supplier:name/></dd>
+                                <dt><label>Email:</label></dt>
+                                <dd><supplier:email/><lift:Msg/></dd>
+                                <dt><label>Telephone:</label></dt>
+                                <dd><supplier:telephone/></dd>
+                                <dt><label>Address:</label></dt>
+                                <dd><supplier:address/></dd>
+                                <dt><label>Opening Hours:</label></dt>
+                                <dd><supplier:openingHours/></dd>
+                            </dl>
+                        </fieldset>
+                    </form>
+                </section>
+            </div>
+        </article>
+    </div>
 </div>
