@@ -16,13 +16,23 @@ import prism.model.{User, Supplier}
  * to modify lift's environment
  */
 class Boot {
+  lazy val vendor: StandardDBVendor =
+    scala.sys.env.get("DATABASE_URL") match {
+      case None => new StandardDBVendor(
+                        Props.get("db.driver") openOr "org.h2.Driver",
+                        Props.get("db.url") openOr "jdbc:h2:lift_proto.db",
+                        Props.get("db.user"),
+                        Props.get("db.password"))
+      case x => new StandardDBVendor(
+                        Props.get("db.driver") openOr "org.h2.Driver",
+                        x.get,
+                        Full("sdgimiovkgitni"),
+                        Full("xndixPJkYEOz7JIfLSZrp7AFMl"))
+    }
+
+
   def boot {
     if (!DB.jndiJdbcConnAvailable_?) {
-      val vendor =
-	    new StandardDBVendor(Props.get("db.driver") openOr "org.h2.Driver",
-			     Props.get("db.url") openOr
-			     "jdbc:h2:lift_proto.db",
-			     Props.get("db.user"), Props.get("db.password"))
 
       LiftRules.unloadHooks.append(vendor.closeAllConnections_! _)
 
