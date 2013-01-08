@@ -1,0 +1,167 @@
+<html class="lift:html5" xmlns="http://www.w3.org/1999/xhtml" xmlns:lift="http://liftweb.net/">
+<head>
+    <title class="lift:ApplicationTitle">Application</title>
+    <meta name="description" content=""/>
+    <meta name="author" content="Mark P Ashworth"/>
+    <meta name="robots" content="index, follow"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+    <link rel="stylesheet" media="screen" href="/css/plugins/jquery.fullcalendar.css"/>
+    <link rel="stylesheet" media="screen" href="/css/plugins/jquery.jgrowl.css"/>
+    <link rel="stylesheet" media="screen" href="/css/chromatron-dark.css"/>
+    <link rel='stylesheet' type='text/css' href='/css/plugins/jquery.tagsinput.css' />
+    <link rel='stylesheet' type='text/css' href='/css/plugins/jquery.jwysiwyg.css' />
+    <link rel='stylesheet' type='text/css' href='/css/plugins/bootstrap-wysihtml5.css' />
+
+    <link rel="shortcut icon" href="/img/icons/favicon.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="/img/icons/apple-touch-icon-114-precomposed.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="/img/icons/apple-touch-icon-72-precomposed.png" />
+    <link rel="apple-touch-icon-precomposed" href="/img/icons/apple-touch-icon-57-precomposed.png" />
+
+    <script src="/js/libs/jquery.js"></script>
+    <script src="/js/libs/modernizr.js"></script>
+    <script src="/js/libs/selectivizr.js"></script>
+
+    <script>
+        $(document).ready(function(){
+
+            // Tooltips for nav badge
+            $('.main-navigation .badge').tooltip({
+                placement: 'bottom'
+            });
+
+            // Tooltips for widgets
+            $('.widget [title]').tooltip({
+                placement: 'left'
+            });
+
+            // Close button for widgets
+            $('.widget').alert();
+
+            // Remove tooltip when widget is closed
+            $('.widget').bind('close', function () {
+                $(this).find('.close').tooltip('destroy');
+            })
+
+            // Tabs
+            $('.demoTabs a').click(function (e) {
+                e.preventDefault();
+                $(this).tab('show');
+            })
+
+        });
+    </script>
+</head>
+<body>
+    <div class="fixed-layout">
+        <section class="navigation-block">
+            <header>
+                <h1><a class="brand" href="/" title="Back to Homepage"></a></h1>
+                <p>Excellence!!</p>
+            </header>
+            <section class="lift:UserProfile">
+
+            </section>
+            <a href="#" class="btn btn-navbar btn-large" data-toggle="collapse" data-target=".nav-collapse"><span class="fam-application-form"></span> Forms</a>
+            <nav class="main-navigation nav-collapse" role="navigation">
+                <div class="lift:BootstrapMenu" />
+            </nav>
+        </section>
+
+        <section class="content-block" role="main">
+            <ul class="lift:BootstrapMenu.breadcrumb breadcrumb">
+                <li><a class="link" href="#">Link</a></li>
+            </ul>
+            <div class="lift:Msgs"></div>
+            <div id="content" ></div>
+        </section>
+    </div>
+
+    <script src="/js/navigation.js"></script>
+    <script src="/js/bootstrap/bootstrap.min.js"></script>
+    <script src="/js/plugins/fileupload/bootstrap-fileupload.js"></script>
+    <script src="/js/plugins/inputmask/bootstrap-inputmask.js"></script>
+    <script src="/js/plugins/tagsInput/jquery.tagsinput.min.js"></script>
+
+    <script>
+    $(document).ready(function() {
+        $('.tagsinput').tagsInput();
+    });
+    </script>
+
+    <script src="/js/plugins/jWYSIWYG/jquery.wysiwyg.js"></script>
+
+    <script>
+        $(document).ready(function(){
+            $('[title]').tooltip({
+                placement: 'bottom'
+            });
+        });
+    </script>
+    <script>
+        $(document).ready(function() {
+            $('#lift__noticesContainer__ li').on(function() {
+                var closeBtn = $('<img class="awe-cogs"/>')
+                $(this).append(closeBtn)
+                $(closeBtn).bind('click', function() {
+                    $(this).parent().remove();
+                });
+            });
+        });
+        $(document).ready(function() {
+
+            $('.wysiwyg').wysiwyg({
+                controls: {
+                    bold          : { visible : true },
+                    italic        : { visible : true },
+                    underline     : { visible : true },
+                    strikeThrough : { visible : true },
+
+                    justifyLeft   : { visible : true },
+                    justifyCenter : { visible : true },
+                    justifyRight  : { visible : true },
+                    justifyFull   : { visible : true },
+
+                    indent  : { visible : true },
+                    outdent : { visible : true },
+
+                    subscript   : { visible : true },
+                    superscript : { visible : true },
+
+                    undo : { visible : true },
+                    redo : { visible : true },
+
+                    insertOrderedList    : { visible : true },
+                    insertUnorderedList  : { visible : true },
+                    insertHorizontalRule : { visible : true },
+
+                    cut   : { visible : true },
+                    copy  : { visible : true },
+                    paste : { visible : true }
+                },
+                events: {
+                    click: function(event) {
+                        if ($("#click-inform:checked").length > 0) {
+                            event.preventDefault();
+                            alert("You have clicked jWysiwyg content!");
+                        }
+                    }
+                }
+            });
+
+        });
+    </script>
+
+    <script src="/js/plugins/wysihtml5/wysihtml5-0.3.0.js"></script>
+    <script src="/js/plugins/wysihtml5/bootstrap-wysihtml5.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            $('.wysihtml5').wysihtml5();
+        });
+    </script>
+
+    <script src="/js/plugins/colorpicker/bootstrap-colorpicker.js"></script>
+    <script src="/js/plugins/datepicker/bootstrap-datepicker.js"></script>
+</body>
+</html>

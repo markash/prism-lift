@@ -1,0 +1,38 @@
+//
+// Demo styles
+// --------------------------------------------------
+
+/* Demo styles */
+.data-block .row-fluid.demo {
+	color: #fff;
+	line-height: 30px;
+	min-height: 30px;
+	text-align: center;
+	margin-bottom: 10px;
+	.border-radius(3px);
+	&:last-child div {
+		margin-bottom: 0;
+	}
+	& > div {
+		.border-radius(3px);
+		background-color: @templateColor;
+		& > .row,
+		& > .row-fluid {
+			& > div {
+				margin-bottom: 0;
+				.border-radius(3px);
+				background-color: darken(@templateColor, 10%);
+			}
+		}
+	}
+}
+
+.demo > input,
+.demo > select {
+	display: block !important;
+	margin-bottom: 10px;
+}
+
+.progress {
+	margin-bottom: 10px;
+}

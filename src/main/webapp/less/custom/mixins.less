@@ -1,0 +1,57 @@
+//
+// Custom mixins
+// --------------------------------------------------
+
+
+// Replace text with image
+.image-replacer(@path, @repeat, @height, @width) {
+	display: block;
+	background-image: url("@{path}");
+	background-repeat: @repeat;
+	.hide-text();
+	.size(@height, @width);
+}
+
+// Flat buttons
+.flatButtonBackground(@startColor, @typeColor) {
+	.reset-filter();
+	border: none;
+	background-image: none;
+	background-color: @startColor;
+	color: @typeColor;
+	text-shadow: none;
+	.box-shadow(none);
+	&:hover, &:active, &.active, &.disabled, &[disabled] {
+		color: @typeColor;
+		background-color: darken(@startColor, 10%);
+	}
+	&:active, &.active {
+		outline: 0;
+		.box-shadow(~"inset 0 2px 4px rgba(0,0,0,.15), 0 1px 2px rgba(0,0,0,.05)");
+	}
+}
+
+// Chromatron buttons
+.chromaButtonBackground(@startColor, @endColor, @typeColor) {
+	.buttonBackground(@startColor, @endColor, @typeColor, 0 1px 2px rgba(0,0,0,0.5));
+	background-color: @startColor;
+	border-color: rgba(0, 0, 0, 0.15) rgba(0, 0, 0, 0.15) rgba(0, 0, 0, 0.25);
+	.box-shadow(~"0 1px 2px @grayLight, 0 1px 2px rgba(255, 255, 255, 0.3) inset");
+	&:hover, &:active, &.active {
+		color: @typeColor;
+		background-position: 0 0;
+		background-color: darken(@startColor, 10%);
+		background-image: none;
+	}
+	&:active, &.active {
+		outline: 0;
+		.box-shadow(~"inset 0 2px 4px rgba(0,0,0,.15), 0 1px 2px rgba(0,0,0,.05)");
+	}
+	&.disabled,
+	&[disabled] {
+		background-color: darken(@white, 10%);
+		background-image: none;
+		.opacity(65);
+		.box-shadow(none);
+	}
+}

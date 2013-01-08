@@ -1,0 +1,33 @@
+<lift:surround with="default" at="content" xmlns:lift="http://liftweb.net/">
+
+            <section>
+                <lift:Notices showAll="true">
+                    <lift:error_class>notification error</lift:error_class>
+                    <lift:warning_class>notification warning</lift:warning_class>
+                    <lift:notice_class>notification success</lift:notice_class>
+                </lift:Notices>
+
+                <lift:supplierView.add form="post">
+                    <fieldset>
+                        <legend>Legend</legend>
+                        <dl>
+                            <dt><label>Name:</label></dt>
+                            <dd><supplier:name/></dd>
+                            <dt><label>Email:</label></dt>
+                            <dd><supplier:email/><lift:Msg/></dd>
+                            <dt><label>Telephone:</label></dt>
+                            <dd><supplier:telephone/></dd>
+                            <dt><label>Address:</label></dt>
+                            <dd><supplier:address/></dd>
+                            <dt><label>Opening Hours:</label></dt>
+                            <dd><supplier:openingHours/></dd>
+                        </dl>
+                    </fieldset>
+                    <supplier:submit>
+                        <button>New</button>
+                    </supplier:submit>
+                </lift:supplierView.add>
+            </section>
+
+</lift:surround>
+

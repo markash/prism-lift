@@ -1,0 +1,41 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:lift="http://liftweb.net/">
+<head>
+    <title class="lift:ApplicationTitle">Application</title>
+    <meta name="description" content=""/>
+    <meta name="author" content="Mark P Ashworth"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="robots" content="index, follow" />
+
+    <link rel='stylesheet' type='text/css' href='/css/chromatron-dark.css'/>
+
+    <link rel="shortcut icon" href="/img/icons/favicon.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="/img/icons/apple-touch-icon-114-precomposed.png"/>
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="/img/icons/apple-touch-icon-72-precomposed.png" />
+    <link rel="apple-touch-icon-precomposed" href="/img/icons/apple-touch-icon-57-precomposed.png"/>
+
+    <script src="/js/libs/jquery.js"></script>
+    <script src="/js/libs/modernizr.js"></script>
+    <script src="/js/libs/selectivizr.js"></script>
+</head>
+<body class="login-page">
+    <div class="login-container">
+        <h1><a class="brand" href="#">Prism</a></h1>
+        <section>
+            <a href="/" title="Back to Homepage"></a>
+            <lift:bind name="content" />
+        </section>
+        <nav>
+            <ul>
+                <li><a href="#">Lost password?</a></li>
+                <li><a href="#">Support</a></li>
+                <li><a href="#">Back to page</a></li>
+            </ul>
+        </nav>
+    </div>
+
+    <script src="/js/jquery-1.7.1.min.js"></script>
+    <script src="/js/libs/selectivizr.js"></script>
+    <script src="/js/jquery/jquery.tipsy.js"></script>
+    <script src="/js/login.js"></script>
+    </body>
+</html>
