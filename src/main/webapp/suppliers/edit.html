@@ -1,33 +1,28 @@
-<div class="lift:surround?with=default&at=content>
-    <article class="page-header">
-        <h1><span class="awe-bolt"></span> Chromatron Responsive Admin Template</h1>
-        <p>The Chromatron is a color television cathode ray tube design invented by Nobel prize winner Ernest Lawrence. The Chromatron offered brighter images than conventional color television systems using a shadow mask. The system consisted of a series of thin metal wires or plates placed about &frac12; an inch behind the phosphor screen. The phosphor covered over 50% of the screen's area, whereas the contemporary shadow masks covered about 25%.</p>
-    </article>
+<div class="lift:surround?with=default&at=content">
+    <lift:Notices showAll="true">
+        <lift:error_class>notification error</lift:error_class>
+        <lift:warning_class>notification warning</lift:warning_class>
+        <lift:notice_class>notification success</lift:notice_class>
+    </lift:Notices>
 
-        <lift:Notices showAll="true">
-            <lift:error_class>notification error</lift:error_class>
-            <lift:warning_class>notification warning</lift:warning_class>
-            <lift:notice_class>notification success</lift:notice_class>
-        </lift:Notices>
-
-        <lift:supplierView.add form="post">
-            <fieldset>
-                <legend>Legend</legend>
-                <dl>
-                    <dt><label>Name:</label></dt>
-                    <dd><supplier:name/></dd>
-                    <dt><label>Email:</label></dt>
-                    <dd><supplier:email/><lift:Msg/></dd>
-                    <dt><label>Telephone:</label></dt>
-                    <dd><supplier:telephone/></dd>
-                    <dt><label>Address:</label></dt>
-                    <dd><supplier:address/></dd>
-                    <dt><label>Opening Hours:</label></dt>
-                    <dd><supplier:openingHours/></dd>
-                </dl>
-            </fieldset>
-            <supplier:submit>
-                <button>New</button>
-            </supplier:submit>
-        </lift:supplierView.add>
+    <form class="lift:supplierView.edit" form="post">
+        <fieldset>
+            <legend>Legend</legend>
+            <dl>
+                <dt><label>Name:</label></dt>
+                <dd><supplier:name/></dd>
+                <dt><label>Email:</label></dt>
+                <dd><supplier:email/><lift:Msg/></dd>
+                <dt><label>Telephone:</label></dt>
+                <dd><supplier:telephone/></dd>
+                <dt><label>Address:</label></dt>
+                <dd><supplier:address/></dd>
+                <dt><label>Opening Hours:</label></dt>
+                <dd><supplier:opening-hours/></dd>
+            </dl>
+        </fieldset>
+        <supplier:submit>
+            <button>New</button>
+        </supplier:submit>
+    </form>
 </div>

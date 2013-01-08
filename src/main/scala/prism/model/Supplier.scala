@@ -5,9 +5,16 @@ import net.liftweb.sitemap.{Menu, Loc}
 import net.liftweb.sitemap.Loc._
 import prism.lib.UserMustBeLoggedIn
 import net.liftweb.http.S._
+import net.liftweb.http.{LiftResponse, RedirectResponse, S}
+import net.liftweb.common.{Full, Box, Empty}
 
 object Supplier extends Supplier
                 with LongKeyedMetaMapper[Supplier] {
+
+  def redirect: Box[LiftResponse] = S.param("id").openOr(-1) match {
+    case -1 => Full(RedirectResponse("404.html"))
+    case _ => Empty
+  }
 
   val sitemap = List(
     Menu("Supplier") / "suppliers" >> UserMustBeLoggedIn >> HideIfNoKids submenus (

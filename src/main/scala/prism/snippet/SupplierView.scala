@@ -1,19 +1,23 @@
 package prism.snippet
 
 import net.liftweb._
+import common.Full
 import http._
 import mapper.MaxRows
+import mapper.MaxRows
+import mapper.StartAt
 import mapper.StartAt
 import mapper.{MaxRows, StartAt}
 import SHtml._
 import sitemap.Loc
 import util._
-import Helpers._
+import util.Helpers._
 
 import scala.xml.{NodeSeq, Text}
 import prism.model.Supplier
-import common.{Box, Logger}
+import common.{Full, Empty, Box, Logger}
 import prism.lib._
+import xml.Text
 import xml.Text
 
 
@@ -109,31 +113,9 @@ class SupplierView extends PaginatorSnippet[Supplier] {
 
   def view(form: NodeSeq):NodeSeq = doViewBind(form, Supplier.find(S.param("id").openOr(-1)))
 
-  def edit:NodeSeq = S.param("id").openOr(-1) match {
-    case -1 => (<div>Incorrect id</div>)
-    case x  => (<div>{x}</div>)
-  }
+  def edit(form: NodeSeq):NodeSeq = doEditBind(form, Supplier.find(S.param("id").openOr(-1)))
 
-  def add(form: NodeSeq) = {
-    val supplier = Supplier.create
-
-    def checkAndSave(): Unit =
-      supplier.validate match {
-        case Nil => supplier.save() ; S.notice("Added supplier" + supplier.name)
-        case xs => S.error(xs) ; S.mapSnippet("SupplierView.add", doBind)
-      }
-
-    def doBind(form: NodeSeq) =
-      bind("supplier", form,
-        "name" -> supplier.name.toForm,
-        "email" -> supplier.email.toForm,
-        "address" -> supplier.address.toForm,
-        "telephone" -> supplier.telephone.toForm,
-        "openingHours" -> supplier.openingHours.toForm,
-        "submit" -> submit("New", checkAndSave))
-
-    doBind(form)
-  }
+  def add(form: NodeSeq): NodeSeq = doAddBind(form, Full(Supplier.create))
 
   def doViewBind(form: NodeSeq, model: Box[Supplier]): NodeSeq = {
     val supplier = model.openOr(S.redirectTo(S.referer openOr "/"))
@@ -147,14 +129,53 @@ class SupplierView extends PaginatorSnippet[Supplier] {
     )
   }
 
-  def doEditBind(form: NodeSeq, supplier: Supplier): NodeSeq =
+  def doEditBind(form: NodeSeq, model: Box[Supplier]): NodeSeq = {
+    val supplier = model.openOr(S.redirectTo(S.referer openOr "/"))
+    doWritableBind(form, supplier)
+  }
+
+  def doAddBind(form: NodeSeq, model: Box[Supplier]): NodeSeq = {
+    val supplier = model.openOr(S.redirectTo(S.referer openOr "/"))
+
+    def checkAndSave(): Unit =
+      supplier.validate match {
+        case Nil => supplier.save() ; S.notice("Recorded supplier " + supplier.name)
+        case xs => S.error(xs) ; S.mapSnippet("SupplierView.add", doBind)
+      }
+
+    def doBind(form: NodeSeq) =
+      bind("supplier", form,
+        "name" -> supplier.name.toForm,
+        "email" -> supplier.email.toForm,
+        "address" -> supplier.address.toForm,
+        "telephone" -> supplier.telephone.toForm,
+        "opening-hours" -> supplier.openingHours.toForm,
+        "submit" -> submit(S.?("form.save"), checkAndSave)
+      )
+
+    doBind(form)
+  }
+
+  def doWritableBind(form: NodeSeq, supplier: Supplier): NodeSeq = {
+
+    def checkAndSave(): Unit =
+      supplier.validate match {
+        case Nil => supplier.save(); S.notice("Recorded supplier " + supplier.name)
+        case xs => S.error(xs) ; S.mapSnippet("SupplierView.edit", doBind)
+      }
+
+    def doBind(form: NodeSeq) =
     bind("supplier", form,
-      "name" -> supplier.name.get,
-      "email" -> supplier.email.get,
-      "address" -> supplier.address.get,
-      "telephone" -> supplier.telephone.get,
-      "openingHours" -> supplier.openingHours.get
+      "name" -> supplier.name.toForm,
+      "email" -> supplier.email.toForm,
+      "address" -> supplier.address.toForm,
+      "telephone" -> supplier.telephone.toForm,
+      "opening-hours" -> supplier.openingHours.toForm,
+      "submit" -> submit(S.?("form.save"), checkAndSave)
     )
+
+    doBind(form)
+  }
 }
 
 class BootstrapMenu extends Logger {
