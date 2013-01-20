@@ -1,7 +1,7 @@
 # Properties in this file will be read when running in dev mode
-db.driver=org.postgresql.Driver
-db.url=jdbc:postgresql://localhost/prism
-db.user=marka
-db.password=delphi18*
+#db.driver=org.postgresql.Driver
+#db.url=jdbc:postgresql://localhost/prism
+#db.user=marka
+#db.password=delphi18*
 
 table.itemsPerPage=10

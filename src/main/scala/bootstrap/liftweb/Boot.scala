@@ -16,7 +16,9 @@ import prism.model.{User, Supplier}
  * to modify lift's environment
  */
 class Boot {
-  lazy val vendor: StandardDBVendor =
+  lazy val vendor: StandardDBVendor = new StandardDBVendor("org.h2.Driver","jdbc:h2:lift_proto.db", Props.get("db.user"), Props.get("db.password"))
+
+  /*
     scala.sys.env.get("DATABASE_URL") match {
       case None => new StandardDBVendor(
                         Props.get("db.driver") openOr "org.h2.Driver",
@@ -33,7 +35,7 @@ class Boot {
 
     new StandardDBVendor("org.postgresql.Driver", databaseUrl, Full(user), Full(password))  
   }
-
+*/
 
   def boot {
     /*
