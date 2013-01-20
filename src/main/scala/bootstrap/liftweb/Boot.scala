@@ -23,12 +23,16 @@ class Boot {
                         Props.get("db.url") openOr "jdbc:h2:lift_proto.db",
                         Props.get("db.user"),
                         Props.get("db.password"))
-      case x => new StandardDBVendor(
-                        Props.get("db.driver") openOr "org.h2.Driver",
-                        x.get,
-                        Full("sdgimiovkgitni"),
-                        Full("xndixPJkYEOz7JIfLSZrp7AFMl"))
+      case x => initHerokuDb(x.get)
     }
+
+  def initHerokuDb(databaseUrl: String): StandardDBVendor = {
+    // Extract credentials from Heroku database URL:
+    val uri = new java.net.URI(databaseUrl)
+    val Array(user:String, password:String) = uri.getUserInfo.split(":")
+
+    new StandardDBVendor("org.postgresql.Driver", databaseUrl, Full(user), Full(password))  
+  }
 
 
   def boot {
