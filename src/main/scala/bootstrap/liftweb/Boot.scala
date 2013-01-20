@@ -36,12 +36,14 @@ class Boot {
 
 
   def boot {
+    /*
     if (!DB.jndiJdbcConnAvailable_?) {
 
       LiftRules.unloadHooks.append(vendor.closeAllConnections_! _)
 
       DB.defineConnectionManager(DefaultConnectionIdentifier, vendor)
     }
+    */
 
     // where to search snippet
     LiftRules.addToPackages("prism")
@@ -87,7 +89,7 @@ class Boot {
       case r => println("Received: "+r)
     }
 
-    S.addAround(DB.buildLoanWrapper)
+    //S.addAround(DB.buildLoanWrapper)
   }
 
   /**
