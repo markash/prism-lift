@@ -103,7 +103,7 @@
 			"file": "src/main/scala/bootstrap/liftweb/Boot.scala",
 			"settings":
 			{
-				"buffer_size": 3641,
+				"buffer_size": 3724,
 				"line_ending": "Unix"
 			}
 		},
@@ -149,13 +149,12 @@
 			}
 		},
 		{
-			"contents": "Welcome to Scala version 2.9.2 (OpenJDK Client VM, Java 1.7.0_09).\nType in expressions to have them evaluated.\nType :help for more information.\n\nscala> var x = [1,2,3];\n<console>:1: error: illegal start of simple expression\n       var x = [1,2,3];\n               ^\n\nscala> var x = {1,2,3};\n<console>:1: error: ';' expected but ',' found.\n       var x = {1,2,3};\n                 ^\n\nscala> var x = 1::2::3;\n<console>:7: error: value :: is not a member of Int\n       var x = 1::2::3;\n                   ^\n\nscala> val x = [1,2,3];\n<console>:1: error: illegal start of simple expression\n       val x = [1,2,3];\n               ^\n\nscala> val x = [1,2,3];\n<console>:1: error: illegal start of simple expression\n       val x = [1,2,3];\n               ^\n\nscala> val x = List[1,2,3];\n<console>:1: error: identifier expected but integer literal found.\n       val x = List[1,2,3];\n                    ^\n<console>:1: error: ']' expected but ';' found.\n       val x = List[1,2,3];\n                          ^\n\nscala> val x = List(1,2,3);\nx: List[Int] = List(1, 2, 3)\n\nscala> for (y <- x; if y == 2) yield y;\nres0: List[Int] = List(2)\n\nscala> (for (y <- x; if y == 2) yield y).flatMap;\n<console>:9: error: missing arguments for method flatMap in trait TraversableLike;\nfollow this method with `_' if you want to treat it as a partially applied function\n              (for (y <- x; if y == 2) yield y).flatMap;\n                                                ^\n\nscala> (for (y <- x; if y == 2) yield y).flatMap(_);\n<console>:9: error: missing parameter type for expanded function ((x$1) => x.withFilter(((y: Int) => y.==(2))).map(((y: Int) => y)).flatMap(x$1))\n              (for (y <- x; if y == 2) yield y).flatMap(_);\n                                                        ^\n\nscala> val d = List(1);\nd: List[Int] = List(1)\n\nscala> d._1\n<console>:9: error: value _1 is not a member of List[Int]\n              d._1\n                ^\n\nscala> d(0)\nres4: Int = 1\n\nscala> d.length\nres5: Int = 1\n\nscala> for (y <- x; if y == 2) yield y\nres6: List[Int] = List(2)\n\nscala> d match {case d.length == 1 => d(0) case _ => 0}\n<console>:9: error: value == is not a case class constructor, nor does it have an unapply/unapplySeq method\n              d match {case d.length == 1 => d(0) case _ => 0}\n                                     ^\n\nscala> d match {case d.length = 1 => d(0) case _ => 0}\n<console>:1: error: '=>' expected but '=' found.\n       d match {case d.length = 1 => d(0) case _ => 0}\n                              ^\n\nscala> d match {case (d.length = 1) => d(0) case _ => 0}\n<console>:1: error: ')' expected but '=' found.\n       d match {case (d.length = 1) => d(0) case _ => 0}\n                               ^\n<console>:1: error: '=>' expected but '}' found.\n       d match {case (d.length = 1) => d(0) case _ => 0}\n                                                       ^\n\nscala> if d.length == 0 then 0 else d(0)\n<console>:1: error: '(' expected but identifier found.\n       if d.length == 0 then 0 else d(0)\n          ^\n\nscala> if (d.length == 0) then 0 else d(0)\n<console>:1: error: ';' expected but integer literal found.\n       if (d.length == 0) then 0 else d(0)\n                               ^\n\nscala> if (d.length = 0) then 0 else d(0)\n<console>:1: error: ';' expected but integer literal found.\n       if (d.length = 0) then 0 else d(0)\n                              ^\n\nscala> def u(d: List[Int]) = if (d.length == 0) then 0 else d(0)\n<console>:1: error: ';' expected but integer literal found.\n       def u(d: List[Int]) = if (d.length == 0) then 0 else d(0)\n                                                     ^\n\nscala> def u(d: List[Int]) = { if (d.length == 0) then 0 else d(0) }\n<console>:1: error: ';' expected but integer literal found.\n       def u(d: List[Int]) = { if (d.length == 0) then 0 else d(0) }\n                                                       ^\n\nscala> def u(d: List[Int]) = { if (d.length == 0) 0 else d(0) }\nu: (d: List[Int])Int\n\nscala> u(d);\nres8: Int = 1\n\nscala> val x = for(t <- d; if d == 2) yield t;\nx: List[Int] = List()\n\nscala> x\nres9: List[Int] = List()\n\nscala> val x = () => for(t <- d; if d == 2) yield t;\nx: () => List[Int] = <function0>\n\nscala> x.length\n<console>:10: error: value length is not a member of () => List[Int]\n              x.length\n                ^\n\nscala> x.length;\n<console>:10: error: value length is not a member of () => List[Int]\n              x.length;\n                ^\n\nscala> x length;\n<console>:10: error: value length is not a member of () => List[Int]\n              x length;\n                ^\n\nscala> x;\nres13: () => List[Int] = <function0>\n\nscala> x.apply()\nres14: List[Int] = List()\n\nscala> x.apply().length\nres15: Int = 0\n\nscala> val x = () => for(t <- d; if d == 1) yield t;\nx: () => List[Int] = <function0>\n\nscala> x.apply()(2)\njava.lang.IndexOutOfBoundsException: 2\n	at scala.collection.LinearSeqOptimized$class.apply(LinearSeqOptimized.scala:51)\n	at scala.collection.immutable.List.apply(List.scala:76)\n	at .<init>(<console>:10)\n	at .<clinit>(<console>)\n	at .<init>(<console>:11)\n	at .<clinit>(<console>)\n	at $print(<console>)\n	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)\n	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)\n	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)\n	at java.lang.reflect.Method.invoke(Method.java:601)\n	at scala.tools.nsc.interpreter.IMain$ReadEvalPrint.call(IMain.scala:704)\n	at scala.tools.nsc.interpreter.IMain$Request$$anonfun$14.apply(IMain.scala:920)\n	at scala.tools.nsc.interpreter.Line$$anonfun$1.apply$mcV$sp(Line.scala:43)\n	at scala.tools.nsc.io.package$$anon$2.run(package.scala:25)\n	at java.lang.Thread.run(Thread.java:722)\n\n\nscala> val s = x.apply(); if (s.length == 1) Some(s) else None\ns: List[Int] = List()\nres17: Option[List[Int]] = None\n\nscala> val s = x.apply(); if (s.length == 1) Some(s(0)) else None\ns: List[Int] = List()\nres18: Option[Int] = None\n\nscala> x.apply();\nres19: List[Int] = List()\n\nscala> d;\nres20: List[Int] = List(1)\n\nscala> val x = () => for(t <- d; if t == 1) yield t;\nx: () => List[Int] = <function0>\n\nscala> val s = x.apply(); if (s.length == 1) Some(s(0)) else None\ns: List[Int] = List(1)\nres21: Option[Int] = Some(1)\n\nscala> def () => for(t <- d; if t == 1) yield t;\n<console>:1: error: identifier expected but '(' found.\n       def () => for(t <- d; if t == 1) yield t;\n           ^\n\nscala> def x = () => for(t <- d; if t == 1) yield t;\nx: () => List[Int]\n\nscala> ",
+			"contents": "filter",
 			"settings":
 			{
-				"buffer_size": 6496,
+				"buffer_size": 6,
 				"line_ending": "Unix",
-				"name": "*REPL* [scala]",
-				"scratch": true
+				"name": "filter"
 			}
 		},
 		{
@@ -172,6 +171,14 @@
 			"settings":
 			{
 				"buffer_size": 7911,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "src/main/resources/forms.properties",
+			"settings":
+			{
+				"buffer_size": 796,
 				"line_ending": "Unix"
 			}
 		}
@@ -300,7 +307,7 @@
 	"groups":
 	[
 		{
-			"selected": 1,
+			"selected": 0,
 			"sheets":
 			[
 				{
@@ -326,7 +333,7 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 2176.0,
+						"translation.y": 799.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -336,15 +343,15 @@
 					"file": "src/main/scala/bootstrap/liftweb/Boot.scala",
 					"settings":
 					{
-						"buffer_size": 3641,
+						"buffer_size": 3724,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								2332,
-								2332
+								2508,
+								2508
 							]
 						],
 						"settings":
@@ -354,7 +361,7 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 612.0,
+						"translation.y": 663.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -499,35 +506,24 @@
 					"buffer": 7,
 					"settings":
 					{
-						"buffer_size": 6496,
+						"buffer_size": 6,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								6496,
-								6496
+								6,
+								6
 							]
 						],
 						"settings":
 						{
-							"auto_complete": true,
-							"auto_indent": false,
-							"detect_indentation": false,
-							"gutter": false,
-							"history_arrows": true,
-							"indent_subsequent_lines": false,
-							"line_numbers": false,
-							"repl": true,
-							"repl_external_id": "scala",
-							"repl_id": "a084ede4392b4d7eb099ac6dc885253e",
-							"smart_indent": false,
-							"syntax": "Packages/Scala/Scala.tmLanguage",
-							"translate_tabs_to_spaces": false
+							"auto_name": "filter",
+							"syntax": "Packages/Text/Plain text.tmLanguage"
 						},
 						"translation.x": 0.0,
-						"translation.y": 3066.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -585,6 +581,32 @@
 						"zoom_level": 1.0
 					},
 					"type": "text"
+				},
+				{
+					"buffer": 10,
+					"file": "src/main/resources/forms.properties",
+					"settings":
+					{
+						"buffer_size": 796,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								730,
+								730
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Java/JavaProperties.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
 				}
 			]
 		}
@@ -635,6 +657,10 @@
 		"selected_items":
 		[
 			[
+				"form",
+				"src/main/resources/forms.properties"
+			],
+			[
 				"pom.xml",
 				"pom.xml"
 			],
@@ -653,10 +679,6 @@
 			[
 				"user.scala",
 				"src/main/scala/prism/model/User.scala"
-			],
-			[
-				"form",
-				"src/main/resources/forms.properties"
 			],
 			[
 				"default.props",

@@ -62,7 +62,9 @@ class Boot {
         User.changePasswordMenuLoc.open_!
       ),
       Menu("Hidden") / "hidden" >> Hidden submenus (
-        User.validateUserMenuLoc.open_!
+        User.validateUserMenuLoc.open_!,
+        User.lostPasswordMenuLoc.open_!,
+        User.resetPasswordMenuLoc.open_!
       )
     )
 
