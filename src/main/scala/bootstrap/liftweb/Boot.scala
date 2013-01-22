@@ -7,8 +7,11 @@ import _root_.net.liftweb.http.provider._
 import _root_.net.liftweb.sitemap._
 import _root_.net.liftweb.sitemap.Loc._
 import _root_.net.liftweb.mapper.{DB, ConnectionManager, Schemifier, DefaultConnectionIdentifier, StandardDBVendor}
+import _root_.net.liftweb.util.Mailer.{To, From, PlainMailBodyType, Subject}
+import _root_.net.liftweb.util.Mailer
 import _root_.java.sql.{Connection, DriverManager}
-import prism.model.{User, Supplier}
+import prism.model.{User, Supplier, Setting, Settings}
+import scala.collection.{ mutable, immutable, generic }
 
 
 /**
@@ -16,9 +19,7 @@ import prism.model.{User, Supplier}
  * to modify lift's environment
  */
 class Boot {
-  lazy val vendor: StandardDBVendor = new StandardDBVendor("org.h2.Driver","jdbc:h2:lift_proto.db", Props.get("db.user"), Props.get("db.password"))
-
-  /*
+  lazy val vendor: StandardDBVendor =
     scala.sys.env.get("DATABASE_URL") match {
       case None => new StandardDBVendor(
                         Props.get("db.driver") openOr "org.h2.Driver",
@@ -35,33 +36,33 @@ class Boot {
 
     new StandardDBVendor("org.postgresql.Driver", databaseUrl, Full(user), Full(password))  
   }
-*/
 
   def boot {
-    /*
+    
     if (!DB.jndiJdbcConnAvailable_?) {
-
       LiftRules.unloadHooks.append(vendor.closeAllConnections_! _)
-
       DB.defineConnectionManager(DefaultConnectionIdentifier, vendor)
     }
-    */
-
+    
     // where to search snippet
     LiftRules.addToPackages("prism")
-    Schemifier.schemify(true, Schemifier.infoF _, User, Supplier)
+    Schemifier.schemify(true, Schemifier.infoF _, User, Supplier, Setting)
 
     // Build SiteMap
     val sitemap = List(
       Menu("Dashboard") / ""  submenus (
         Menu("Home") / "index",
         User.loginMenuLoc.open_!,
+        User.createUserMenuLoc.open_!,
         Menu(Loc("Static", Link(List("static"), true, "/static/index"), "Static Content"))
       ),
       Menu("Profile") / "profile" >> HideIfNoKids submenus (
         User.logoutMenuLoc.open_!,
         User.editUserMenuLoc.open_!,
         User.changePasswordMenuLoc.open_!
+      ),
+      Menu("Hidden") / "hidden" >> Hidden submenus (
+        User.validateUserMenuLoc.open_!
       )
     )
 
@@ -91,7 +92,9 @@ class Boot {
       case r => println("Received: "+r)
     }
 
-    //S.addAround(DB.buildLoanWrapper)
+    Settings.setupEmail
+
+    S.addAround(DB.buildLoanWrapper)
   }
 
   /**

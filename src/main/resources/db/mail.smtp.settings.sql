@@ -1,0 +1,9 @@
+﻿insert into setting (id, name, value) values (nextval('setting_id_seq'), 'mail.smtp.starttls.enable', 'true');
+insert into setting (id, name, value) values (nextval('setting_id_seq'), 'mail.smtp.ssl.enable',      'true');
+insert into setting (id, name, value) values (nextval('setting_id_seq'), 'mail.smtp.host',            'smtp.gmail.com');
+insert into setting (id, name, value) values (nextval('setting_id_seq'), 'mail.smtp.port',            '587');
+insert into setting (id, name, value) values (nextval('setting_id_seq'), 'mail.smtp.auth',            'true');
+insert into setting (id, name, value) values (nextval('setting_id_seq'), 'mail.smtp.user',            'user@gmail.com');
+insert into setting (id, name, value) values (nextval('setting_id_seq'), 'mail.smtp.pwd',             'pwd');
+insert into setting (id, name, value) values (nextval('setting_id_seq'), 'mail.smtp.from',            'user@gmail.com');
+insert into setting (id, name, value) values (nextval('setting_id_seq'), 'mail.debug',                'true');

@@ -22,7 +22,9 @@ object User extends User with MetaMegaProtoUser[User] {
 
   override def fieldOrder = List(id, firstName, lastName, email, locale, timezone, password, textArea)
 
-  override def skipEmailValidation = true
+  override def skipEmailValidation = false
+
+  override def emailFrom = Settings.emailFrom.getOrElse("noreply@localhost")
 
   override protected def loginMenuLocParams: List[LocParam[Unit]] =
     If(notLoggedIn_? _, () => RedirectResponse("/")) ::
@@ -53,6 +55,30 @@ object User extends User with MetaMegaProtoUser[User] {
    )
   }
 
+  override def signupXhtml(user: TheUserType) = {
+    (
+      <div class="row-fluid">
+        <article class="span12 data-block nested">
+          <div class="data-container">
+            <header>
+              <h3>{S.?("form.user.signup")}</h3>
+            </header>
+            <section>
+              <form method="post" action={S.uri}>
+                <fieldset>
+                  {localForm(user, false, signupFields)}
+                  <div class="form-actions">
+                    <user:submit class={S.?("form.submit.primary.css")} />
+                  </div>
+                </fieldset>
+              </form>
+            </section>
+          </div>
+        </article>
+      </div>
+    )
+  }
+
   override def editXhtml(user: TheUserType) = {
     (
       <div class="row-fluid">
@@ -75,6 +101,26 @@ object User extends User with MetaMegaProtoUser[User] {
         </article>
       </div>
     )
+  }
+
+  override def signup = {
+    val theUser: TheUserType = mutateUserOnSignup(createNewUserInstance())
+    val theName = signUpPath.mkString("")
+
+    def testSignup() {
+      validateSignup(theUser) match {
+        case Nil =>
+          actionsAfterSignup(theUser, () => S.redirectTo(homePage))
+
+        case xs => S.error(xs) ; signupFunc(Full(innerSignup _))
+      }
+    }
+
+    def innerSignup = bind("user",
+      signupXhtml(theUser),
+      "submit" -> signupSubmitButton(S.?("form.profile.signup.btn.text"), testSignup _))
+
+    innerSignup
   }
 
   override def login = {
@@ -111,7 +157,7 @@ object User extends User with MetaMegaProtoUser[User] {
     bind("user", loginXhtml,
       "email" -> (FocusOnLoad(<input type="text" name="username" class="input-xlarge"/>)),
       "password" -> (<input type="password" name="password" class="input-xlarge"/>),
-      "submit" -> loginSubmitButton("Login"))
+      "submit" -> loginSubmitButton(S.?("form.profile.login.btn.text")))
   }
 
   def profileXhtml() = ProfileBlock(currentUser)

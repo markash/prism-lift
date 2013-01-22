@@ -1,0 +1,690 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"sett",
+				"setting"
+			],
+			[
+				"email",
+				"emailFromSetting"
+			],
+			[
+				"p",
+				"prism	"
+			],
+			[
+				"data",
+				"databaseUrl"
+			],
+			[
+				"re",
+				"reasonable_date"
+			],
+			[
+				"days",
+				"days_in_month"
+			],
+			[
+				"lea",
+				"leap_year"
+			],
+			[
+				"and",
+				"andalso"
+			],
+			[
+				"date",
+				"dates_in_months"
+			],
+			[
+				"num",
+				"number_in_months"
+			],
+			[
+				"val",
+				"vals"
+			],
+			[
+				"month",
+				"month_range"
+			],
+			[
+				"mont",
+				"month_days"
+			],
+			[
+				"mon",
+				"month_to_string"
+			],
+			[
+				"day",
+				"day_of_year"
+			],
+			[
+				"number",
+				"number_before_reaching_sum"
+			],
+			[
+				"nth",
+				"nth_date"
+			],
+			[
+				"months",
+				"month_to_string"
+			],
+			[
+				"dates",
+				"dates_in_month"
+			],
+			[
+				"has",
+				"has_month"
+			],
+			[
+				"year",
+				"year_to_number"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "src/main/scala/prism/model/User.scala",
+			"settings":
+			{
+				"buffer_size": 7168,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "src/main/scala/bootstrap/liftweb/Boot.scala",
+			"settings":
+			{
+				"buffer_size": 3641,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "src/main/scala/prism/lib/DataTable.scala",
+			"settings":
+			{
+				"buffer_size": 8178,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "src/main/scala/prism/snippet/ApplicationTitle.scala",
+			"settings":
+			{
+				"buffer_size": 176,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "src/main/scala/prism/snippet/Util.scala",
+			"settings":
+			{
+				"buffer_size": 254,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "src/main/scala/prism/model/Supplier.scala",
+			"settings":
+			{
+				"buffer_size": 1591,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "src/main/scala/prism/model/Setting.scala",
+			"settings":
+			{
+				"buffer_size": 2326,
+				"line_ending": "Unix",
+				"name": "package prism.model;"
+			}
+		},
+		{
+			"contents": "Welcome to Scala version 2.9.2 (OpenJDK Client VM, Java 1.7.0_09).\nType in expressions to have them evaluated.\nType :help for more information.\n\nscala> var x = [1,2,3];\n<console>:1: error: illegal start of simple expression\n       var x = [1,2,3];\n               ^\n\nscala> var x = {1,2,3};\n<console>:1: error: ';' expected but ',' found.\n       var x = {1,2,3};\n                 ^\n\nscala> var x = 1::2::3;\n<console>:7: error: value :: is not a member of Int\n       var x = 1::2::3;\n                   ^\n\nscala> val x = [1,2,3];\n<console>:1: error: illegal start of simple expression\n       val x = [1,2,3];\n               ^\n\nscala> val x = [1,2,3];\n<console>:1: error: illegal start of simple expression\n       val x = [1,2,3];\n               ^\n\nscala> val x = List[1,2,3];\n<console>:1: error: identifier expected but integer literal found.\n       val x = List[1,2,3];\n                    ^\n<console>:1: error: ']' expected but ';' found.\n       val x = List[1,2,3];\n                          ^\n\nscala> val x = List(1,2,3);\nx: List[Int] = List(1, 2, 3)\n\nscala> for (y <- x; if y == 2) yield y;\nres0: List[Int] = List(2)\n\nscala> (for (y <- x; if y == 2) yield y).flatMap;\n<console>:9: error: missing arguments for method flatMap in trait TraversableLike;\nfollow this method with `_' if you want to treat it as a partially applied function\n              (for (y <- x; if y == 2) yield y).flatMap;\n                                                ^\n\nscala> (for (y <- x; if y == 2) yield y).flatMap(_);\n<console>:9: error: missing parameter type for expanded function ((x$1) => x.withFilter(((y: Int) => y.==(2))).map(((y: Int) => y)).flatMap(x$1))\n              (for (y <- x; if y == 2) yield y).flatMap(_);\n                                                        ^\n\nscala> val d = List(1);\nd: List[Int] = List(1)\n\nscala> d._1\n<console>:9: error: value _1 is not a member of List[Int]\n              d._1\n                ^\n\nscala> d(0)\nres4: Int = 1\n\nscala> d.length\nres5: Int = 1\n\nscala> for (y <- x; if y == 2) yield y\nres6: List[Int] = List(2)\n\nscala> d match {case d.length == 1 => d(0) case _ => 0}\n<console>:9: error: value == is not a case class constructor, nor does it have an unapply/unapplySeq method\n              d match {case d.length == 1 => d(0) case _ => 0}\n                                     ^\n\nscala> d match {case d.length = 1 => d(0) case _ => 0}\n<console>:1: error: '=>' expected but '=' found.\n       d match {case d.length = 1 => d(0) case _ => 0}\n                              ^\n\nscala> d match {case (d.length = 1) => d(0) case _ => 0}\n<console>:1: error: ')' expected but '=' found.\n       d match {case (d.length = 1) => d(0) case _ => 0}\n                               ^\n<console>:1: error: '=>' expected but '}' found.\n       d match {case (d.length = 1) => d(0) case _ => 0}\n                                                       ^\n\nscala> if d.length == 0 then 0 else d(0)\n<console>:1: error: '(' expected but identifier found.\n       if d.length == 0 then 0 else d(0)\n          ^\n\nscala> if (d.length == 0) then 0 else d(0)\n<console>:1: error: ';' expected but integer literal found.\n       if (d.length == 0) then 0 else d(0)\n                               ^\n\nscala> if (d.length = 0) then 0 else d(0)\n<console>:1: error: ';' expected but integer literal found.\n       if (d.length = 0) then 0 else d(0)\n                              ^\n\nscala> def u(d: List[Int]) = if (d.length == 0) then 0 else d(0)\n<console>:1: error: ';' expected but integer literal found.\n       def u(d: List[Int]) = if (d.length == 0) then 0 else d(0)\n                                                     ^\n\nscala> def u(d: List[Int]) = { if (d.length == 0) then 0 else d(0) }\n<console>:1: error: ';' expected but integer literal found.\n       def u(d: List[Int]) = { if (d.length == 0) then 0 else d(0) }\n                                                       ^\n\nscala> def u(d: List[Int]) = { if (d.length == 0) 0 else d(0) }\nu: (d: List[Int])Int\n\nscala> u(d);\nres8: Int = 1\n\nscala> val x = for(t <- d; if d == 2) yield t;\nx: List[Int] = List()\n\nscala> x\nres9: List[Int] = List()\n\nscala> val x = () => for(t <- d; if d == 2) yield t;\nx: () => List[Int] = <function0>\n\nscala> x.length\n<console>:10: error: value length is not a member of () => List[Int]\n              x.length\n                ^\n\nscala> x.length;\n<console>:10: error: value length is not a member of () => List[Int]\n              x.length;\n                ^\n\nscala> x length;\n<console>:10: error: value length is not a member of () => List[Int]\n              x length;\n                ^\n\nscala> x;\nres13: () => List[Int] = <function0>\n\nscala> x.apply()\nres14: List[Int] = List()\n\nscala> x.apply().length\nres15: Int = 0\n\nscala> val x = () => for(t <- d; if d == 1) yield t;\nx: () => List[Int] = <function0>\n\nscala> x.apply()(2)\njava.lang.IndexOutOfBoundsException: 2\n	at scala.collection.LinearSeqOptimized$class.apply(LinearSeqOptimized.scala:51)\n	at scala.collection.immutable.List.apply(List.scala:76)\n	at .<init>(<console>:10)\n	at .<clinit>(<console>)\n	at .<init>(<console>:11)\n	at .<clinit>(<console>)\n	at $print(<console>)\n	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)\n	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)\n	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)\n	at java.lang.reflect.Method.invoke(Method.java:601)\n	at scala.tools.nsc.interpreter.IMain$ReadEvalPrint.call(IMain.scala:704)\n	at scala.tools.nsc.interpreter.IMain$Request$$anonfun$14.apply(IMain.scala:920)\n	at scala.tools.nsc.interpreter.Line$$anonfun$1.apply$mcV$sp(Line.scala:43)\n	at scala.tools.nsc.io.package$$anon$2.run(package.scala:25)\n	at java.lang.Thread.run(Thread.java:722)\n\n\nscala> val s = x.apply(); if (s.length == 1) Some(s) else None\ns: List[Int] = List()\nres17: Option[List[Int]] = None\n\nscala> val s = x.apply(); if (s.length == 1) Some(s(0)) else None\ns: List[Int] = List()\nres18: Option[Int] = None\n\nscala> x.apply();\nres19: List[Int] = List()\n\nscala> d;\nres20: List[Int] = List(1)\n\nscala> val x = () => for(t <- d; if t == 1) yield t;\nx: () => List[Int] = <function0>\n\nscala> val s = x.apply(); if (s.length == 1) Some(s(0)) else None\ns: List[Int] = List(1)\nres21: Option[Int] = Some(1)\n\nscala> def () => for(t <- d; if t == 1) yield t;\n<console>:1: error: identifier expected but '(' found.\n       def () => for(t <- d; if t == 1) yield t;\n           ^\n\nscala> def x = () => for(t <- d; if t == 1) yield t;\nx: () => List[Int]\n\nscala> ",
+			"settings":
+			{
+				"buffer_size": 6496,
+				"line_ending": "Unix",
+				"name": "*REPL* [scala]",
+				"scratch": true
+			}
+		},
+		{
+			"contents": "/home/marka/.sbt/.lib/0.12.0-RC2/sbt-launch.jar",
+			"settings":
+			{
+				"buffer_size": 47,
+				"line_ending": "Unix",
+				"name": "/home/marka/.sbt/.lib/0.12.0-RC2/sbt-launch.jar"
+			}
+		},
+		{
+			"file": "src/main/scala/prism/snippet/SupplierView.scala",
+			"settings":
+			{
+				"buffer_size": 7911,
+				"line_ending": "Unix"
+			}
+		}
+	],
+	"build_system": "Packages/Maven/Maven.sublime-build",
+	"command_palette":
+	{
+		"height": 159.0,
+		"selected_items":
+		[
+			[
+				"maven",
+				"Maven: Run ..."
+			],
+			[
+				"Package Control: ",
+				"Package Control: Install Package"
+			],
+			[
+				"package",
+				"Package Control: Install Package"
+			],
+			[
+				"",
+				"SublimeREPL: Scala"
+			],
+			[
+				"scala",
+				"Set Syntax: Scala"
+			],
+			[
+				"ensime",
+				"Set Syntax: Ensime Configuration"
+			],
+			[
+				"Ensime",
+				"Set Syntax: Ensime Configuration"
+			]
+		],
+		"width": 449.0
+	},
+	"console":
+	{
+		"height": 439.0
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/home/marka/SDE/projects/prism/prism-lift/src/main/resources/props/default.props",
+		"/home/marka/SDE/projects/prism/prism-lift/pom.xml",
+		"/home/marka/SDE/projects/prism/prism-lift/src/main/resources/db/mail.smtp.settings.sql",
+		"/home/marka/.config/sublime-text-2/Packages/Default/Default (Linux).sublime-keymap",
+		"/home/marka/SDE/projects/prism/prism-lift/src/main/scala/bootstrap/liftweb/Boot.scala",
+		"/home/marka/SDE/projects/prism/prism-lift/src/main/scala/prism/model/User.scala",
+		"/home/marka/SDE/projects/prism/prism-lift/prism-lift.sublime-workspace",
+		"/home/marka/.m2/repository/net/liftweb/lift-proto_2.9.1/2.5-M3/lift-proto_2.9.1-2.5-M3.jar",
+		"/home/marka/SDE/projects/prism/prism-lift/src/main/resources/forms.properties",
+		"/home/marka/SDE/projects/prism/prism-lift/.ensime",
+		"/home/marka/SDE/servers/ensime/src/main/scala/Main.scala",
+		"/home/marka/.config/sublime-text-2/Packages/Ensime/logs/client.log",
+		"/home/marka/.config/sublime-text-2/Packages/Ensime/logs/server.log",
+		"/home/marka/.config/sublime-text-2/Packages/Ensime/Ensime.sublime-settings",
+		"/home/marka/SDE/projects/course/homework001.txt",
+		"/home/marka/SDE/projects/course/homework001_unittest.sml",
+		"/home/marka/.config/sublime-text-2/Packages/User/Preferences.sublime-settings",
+		"/home/marka/.config/sublime-text-2/Packages/User/Ensime.sublime-settings",
+		"/home/marka/.config/sublime-text-2/Packages/User/SublimeREPL.sublime-settings",
+		"/home/marka/.config/sublime-text-2/Packages/Package Control/Package Control.sublime-settings",
+		"/home/marka/.config/sublime-text-2/Packages/User/Package Control.sublime-settings",
+		"/home/marka/SDE/projects/course/errors.sml",
+		"/home/marka/SDE/projects/course/homework001.sml",
+		"/home/marka/SDE/projects/learn.sml",
+		"/home/marka/SDE/projects/scala.scala",
+		"/home/marka/SDE/projects/test.sml",
+		"/home/marka/.config/sublime-text-2/Packages/User/Default (Linux).sublime-keymap"
+	],
+	"find":
+	{
+		"height": 35.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"mail",
+			"jetty",
+			"Supplier",
+			"maven",
+			"import",
+			"false",
+			"question03_",
+			" =",
+			"31",
+			"true"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			"question12_"
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 1,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "src/main/scala/prism/model/User.scala",
+					"settings":
+					{
+						"buffer_size": 7168,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								506,
+								506
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Scala/Scala.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 2176.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "src/main/scala/bootstrap/liftweb/Boot.scala",
+					"settings":
+					{
+						"buffer_size": 3641,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2332,
+								2332
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Scala/Scala.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 612.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "src/main/scala/prism/lib/DataTable.scala",
+					"settings":
+					{
+						"buffer_size": 8178,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								431,
+								431
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Scala/Scala.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 2142.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "src/main/scala/prism/snippet/ApplicationTitle.scala",
+					"settings":
+					{
+						"buffer_size": 176,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Scala/Scala.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "src/main/scala/prism/snippet/Util.scala",
+					"settings":
+					{
+						"buffer_size": 254,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Scala/Scala.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "src/main/scala/prism/model/Supplier.scala",
+					"settings":
+					{
+						"buffer_size": 1591,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								21,
+								21
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Scala/Scala.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 6,
+					"file": "src/main/scala/prism/model/Setting.scala",
+					"settings":
+					{
+						"buffer_size": 2326,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1060,
+								1060
+							]
+						],
+						"settings":
+						{
+							"auto_name": "package prism.model;",
+							"syntax": "Packages/Scala/Scala.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 153.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 7,
+					"settings":
+					{
+						"buffer_size": 6496,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								6496,
+								6496
+							]
+						],
+						"settings":
+						{
+							"auto_complete": true,
+							"auto_indent": false,
+							"detect_indentation": false,
+							"gutter": false,
+							"history_arrows": true,
+							"indent_subsequent_lines": false,
+							"line_numbers": false,
+							"repl": true,
+							"repl_external_id": "scala",
+							"repl_id": "a084ede4392b4d7eb099ac6dc885253e",
+							"smart_indent": false,
+							"syntax": "Packages/Scala/Scala.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 3066.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 8,
+					"settings":
+					{
+						"buffer_size": 47,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								47,
+								47
+							]
+						],
+						"settings":
+						{
+							"auto_name": "/home/marka/.sbt/.lib/0.12.0-RC2/sbt-launch.jar",
+							"syntax": "Packages/Text/Plain text.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 9,
+					"file": "src/main/scala/prism/snippet/SupplierView.scala",
+					"settings":
+					{
+						"buffer_size": 7911,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								120,
+								120
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Scala/Scala.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 255.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 0.0
+	},
+	"input":
+	{
+		"height": 130.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.exec":
+	{
+		"height": 311.0
+	},
+	"replace":
+	{
+		"height": 64.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+			[
+				"pom.xml",
+				"pom.xml"
+			],
+			[
+				"setting.scala",
+				"src/main/scala/prism/model/Setting.scala"
+			],
+			[
+				"defa",
+				"src/main/resources/props/default.props"
+			],
+			[
+				"user",
+				"src/main/scala/prism/model/User.scala"
+			],
+			[
+				"user.scala",
+				"src/main/scala/prism/model/User.scala"
+			],
+			[
+				"form",
+				"src/main/resources/forms.properties"
+			],
+			[
+				"default.props",
+				"src/main/resources/props/default.props"
+			],
+			[
+				"boot.scala",
+				"src/main/scala/bootstrap/liftweb/Boot.scala"
+			]
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 500.0,
+		"selected_items":
+		[
+			[
+				"",
+				"/home/marka/SDE/projects/liftweb/liftweb.sublime-project"
+			]
+		],
+		"width": 380.0
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 265.0,
+	"status_bar_visible": true
+}
